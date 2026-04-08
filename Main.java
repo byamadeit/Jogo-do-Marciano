@@ -1,16 +1,12 @@
 import java.util.Scanner;
 
-
 public class Main {
 
     static int melhorPont = 0;
 
-    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         boolean jogar = true;
-
         while (jogar) {
             titulo();
             narrativa();
@@ -18,11 +14,8 @@ public class Main {
 
             jogar = Restart(scanner);
         }
-
         scanner.close();
     }
-
-    
     public static void titulo() {
         System.out.println(" ░▒▓██████▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓████████▓▒░▒▓███████▓▒░       ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░▒▓████████▓▒░ ");
         System.out.println("░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░     ");
@@ -36,7 +29,6 @@ public class Main {
         System.out.println("\n        O c a s o  V a r g i n h a              \n");
     }
 
-    
     public static void narrativa() {
         System.out.println();
         System.out.println();
@@ -51,7 +43,6 @@ public class Main {
         System.out.println();
     }
 
-    
     public static void jogo(Scanner scanner) {
 
         String historico = "";
@@ -66,7 +57,7 @@ public class Main {
         while (guess != numero && tentativa < MAX_TENTATIVAS) {
             System.out.println("Tentativa " + (tentativa + 1) + " de " + MAX_TENTATIVAS);
             System.out.println("Tentativas: " + historico);
-            guess = lerPalpite(scanner);
+            guess = lerPalpite(scanner, historico);
             if (historico.contains(guess + " ")) {
                 System.out.println("Você já tentou esse número!");
                 continue;
@@ -122,9 +113,7 @@ public class Main {
     }
 
     
-    public static int lerPalpite(Scanner scanner) {
-        System.out.println();
-        System.out.println("Tentativas: " + historico);
+    public static int lerPalpite(Scanner scanner, String historico) {
         System.out.println();
         System.out.print("Digite um número de 1 a 100: ");
         return scanner.nextInt();
@@ -158,7 +147,6 @@ public class Main {
             return false;
         }
     }
-
     
     public static void textoLento(String texto, int delay) {
         for (int i = 0; i < texto.length(); i++) {
