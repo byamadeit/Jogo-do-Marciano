@@ -91,13 +91,13 @@ public class Main {
     public static void atualizarRanking(int pontAtual) {
         if (pontAtual > melhorPont) {
             melhorPont = pontAtual;
-            System.out.println("🏆 NOVO RECORDE!!!");
+            System.out.println(" NOVO RECORDE!!!");
         }
     }
 
     public static void mostrarRanking() {
         System.out.println();
-        System.out.println("⭐ Melhor pontuação até agora: " + melhorPont);
+        System.out.println(" Melhor pontuação até agora: " + melhorPont);
     }
 
     public static int calcularPontuacao(int tentativas, boolean venceu) {
@@ -140,7 +140,7 @@ public class Main {
         String resposta = scanner.next().toLowerCase();
 
         if (resposta.equals("s")) {
-            System.out.println("\n🔁 Voltando no tempo...\n");
+            System.out.println("\n Voltando no tempo...\n");
             return true;
         } else {
             System.out.println("\nEncerrando...");
