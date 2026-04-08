@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main {
 
     static int melhorPont = 0;
@@ -53,17 +54,25 @@ public class Main {
     
     public static void jogo(Scanner scanner) {
 
+        String historico = "";
+       
         int numero = gerarNumero();
         int guess = 0;
         int tentativa = 0;
         final int MAX_TENTATIVAS = 7;
 
+        
+
         while (guess != numero && tentativa < MAX_TENTATIVAS) {
             System.out.println("Tentativa " + (tentativa + 1) + " de " + MAX_TENTATIVAS);
-
+            System.out.println("Tentativas: " + historico);
             guess = lerPalpite(scanner);
+            if (historico.contains(guess + " ")) {
+                System.out.println("Você já tentou esse número!");
+                continue;
+            }
+            historico += guess + " ";
             tentativa++;
-
             if (guess != numero && tentativa < MAX_TENTATIVAS) {
                 Palpitecheck(guess, numero);
             }
@@ -114,6 +123,8 @@ public class Main {
 
     
     public static int lerPalpite(Scanner scanner) {
+        System.out.println();
+        System.out.println("Tentativas: " + historico);
         System.out.println();
         System.out.print("Digite um número de 1 a 100: ");
         return scanner.nextInt();
